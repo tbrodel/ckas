@@ -61,8 +61,9 @@
 #X obj 305 199 loadbang;
 #X obj 305 289 s timeline;
 #X obj 549 135 loadbang;
-#X msg 549 157 \; pd dsp 1;
+#X msg 549 187 \; pd dsp 1;
 #X obj 85 481 dac~ 5 6 1 2 3 4, f 95;
+#X obj 549 160 delay 1000;
 #X connect 0 0 8 0;
 #X connect 2 0 4 0;
 #X connect 2 0 39 0;
@@ -97,4 +98,5 @@
 #X connect 38 0 39 0;
 #X connect 39 0 41 0;
 #X connect 40 0 37 0;
-#X connect 42 0 43 0;
+#X connect 42 0 45 0;
+#X connect 45 0 43 0;
