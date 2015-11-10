@@ -1,15 +1,15 @@
-#N canvas 638 183 680 584 10;
+#N canvas 963 175 680 584 10;
 #X obj 33 22 iemnet/udpreceive 8000;
 #X obj 93 157 sel 1;
 #X obj 234 157 sel 1;
 #X obj 374 157 sel 1;
-#X obj 33 408 sel 1;
-#X obj 214 394 sel 1;
-#X obj 439 412 sel 1;
+#X obj 33 438 sel 1;
+#X obj 214 424 sel 1;
+#X obj 439 442 sel 1;
 #X obj 93 188 s stop;
-#X obj 374 203 s reset;
+#X obj 374 231 s reset;
 #X obj 234 257 s start;
-#X obj 33 497 s load_dir;
+#X obj 33 527 s load_dir;
 #X obj 171 164 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 65 176 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -17,27 +17,45 @@
 #X obj 234 181 t b b b;
 #X obj 257 204 delay 500;
 #X obj 234 228 delay 1000;
-#X msg 33 430 symbol feurio;
-#X msg 214 416 symbol prologue;
-#X msg 439 434 symbol merle;
-#X obj 9 433 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X msg 33 460 symbol feurio;
+#X msg 214 446 symbol prologue;
+#X msg 439 464 symbol merle;
+#X obj 9 463 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 33 55 osc/unpackOSC;
 #X obj 93 134 osc/routeOSC /stop;
 #X obj 234 134 osc/routeOSC /start;
 #X obj 374 134 osc/routeOSC /reset;
 #X obj 33 95 osc/routeOSC /6dof;
-#X floatatom 454 383 5 0 0 0 - - -, f 5;
-#X msg 447 350 \$1;
-#X msg 212 360 \$1;
-#X msg 33 347 \$1;
-#X obj 33 325 osc/routeOSC /feurio;
-#X obj 215 325 osc/routeOSC /prologue;
-#X obj 443 325 osc/routeOSC /merle;
-#X obj 32 234 osc/routeOSC /load;
-#X obj 65 284 s load;
-#X obj 56 265 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X floatatom 439 414 5 0 0 0 - - -, f 5;
+#X msg 439 384 \$1;
+#X msg 214 389 \$1;
+#X msg 33 377 \$1;
+#X obj 33 355 osc/routeOSC /feurio;
+#X obj 214 357 osc/routeOSC /prologue;
+#X obj 439 355 osc/routeOSC /merle;
+#X obj 33 264 osc/routeOSC /load;
+#X obj 66 314 s load;
+#X obj 57 295 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
+#N canvas 225 255 450 300 playblock 1;
+#X obj 78 53 r start;
+#X obj 148 53 r reset;
+#X obj 218 53 r stop;
+#X msg 148 85 1;
+#X obj 148 117 change;
+#X msg 78 85 0;
+#X obj 148 139 outlet;
+#X obj 279 53 loadbang;
+#X connect 0 0 5 0;
+#X connect 1 0 3 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 6 0;
+#X connect 5 0 4 0;
+#X connect 7 0 3 0;
+#X restore 72 212 pd playblock;
+#X obj 33 240 spigot;
 #X connect 0 0 20 0;
 #X connect 1 0 7 0;
 #X connect 2 0 13 0;
@@ -63,7 +81,7 @@
 #X connect 24 0 21 0;
 #X connect 24 0 22 0;
 #X connect 24 0 23 0;
-#X connect 24 0 32 0;
+#X connect 24 0 36 0;
 #X connect 25 0 6 0;
 #X connect 26 0 25 0;
 #X connect 27 0 5 0;
@@ -76,3 +94,5 @@
 #X connect 32 0 31 0;
 #X connect 32 0 34 0;
 #X connect 34 0 33 0;
+#X connect 35 0 36 1;
+#X connect 36 0 32 0;
