@@ -1,6 +1,6 @@
 # playback #
 These patches depend on a hardcoded file path, relative to the execution of the 
-main <code>en.pd<code> patch. They were developed for the *Klangbewegung 
+main <code>en.pd</code> patch. They were developed for the *Klangbewegung 
 Maschine* project where the (((20Hz))) team designed motion and light to 
 accompany three Einsturzende Neubauten tracks; *Feurio*, *Prologue* and *Merle*.   
 
