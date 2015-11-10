@@ -2,7 +2,7 @@
 These patches depend on a hardcoded file path, relative to the execution of the 
 main <code>en.pd</code> patch. They were developed for the *Klangbewegung 
 Maschine* project where the (((20Hz))) team designed motion and light to 
-accompany three Einsturzende Neubauten tracks; *Feurio*, *Prologue* and *Merle*.   
+accompany three Einstürzende Neubauten tracks; *Feurio*, *Prologue* and *Merle*.   
 
 You'll need to put your tracks in folders named <code>feurio</code>, 
 <code>prologue</code> or <code>merle</code> to get this working out of the box. 
