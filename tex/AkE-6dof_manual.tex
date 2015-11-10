@@ -39,20 +39,35 @@
 
 	This is the interface you will use to load and play audiokinetic 
 	compositions. A red light in the top right-hand corner will flash every 
-	second or so to indicate that the 6DOF system is ready to load a track. 
+	second or so to indicate that the 6DOF system is ready to load a track. If 
+	this is not the case try hitting ``STOP", this should trigger the light.
 	After you choose a track this light will momentarily stop flashing. It is 
 	important to wait until it resumes before you continue, it should take a 
 	couple of seconds. When ready hit the ``START" button. Once the track 
 	finishes or you hit ``STOP" make sure to press ``RESET" to reposition the 
 	motion simulator and ready the audio for the next track.
 
+	\subsubsection{Quick Guide}
+	\begin{enumerate}
+		\item Make sure the red light is flashing by hitting ``STOP"
+		\item Load a track
+		\item When safe, hit the start button
+		\item When the piece finishes hit ``RESET"
+		\item If in doubt, hit ``STOP"
+	\end{enumerate}
+
 	\subsection{Troubleshooting}
 	If the system becomes unresponsive check all network connections and try to 
 	determine the correct IP addresses, update the TouchOSC coniguration if 
-	necessary. If this doesn't work try to powercycle the red ``Cubietruck" 
-	microcomputer by removing and reinserting the power cable. This should take 
+	necessary. If this doesn't work try to reboot the silver ``NUC" 
+	microcomputer by holding down the power button. This should take 
 	a couple of minutes. Next try powercycling the wireless router. If you 
 	still have issues please contact AkE for technical assistance.
+
+	\subsection{Maintenance}
+	The TouchOSC interface relies on a ZTE smartphone with a specific layout 
+	installed. Without this the installation will not run. Please ensure the 
+	phone is charged every night.
 
 	\section{Composition Interface}
 	\label{comp}
@@ -135,7 +150,6 @@
 	trans.wav. Each track should begin with a second or so of silence to 
 	accomodate for resetting the motion simulator before playback. 
 
-	\newpage
 	\section{Software Development}
 	\label{dev}
 	The system is based on a custom \href{http://puredata.info}{Pure Data} 
