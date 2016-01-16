@@ -204,15 +204,15 @@ ifeq (MINGW,$(findstring MINGW,$(UNAME)))
   EXTENSION = dll
   SHARED_EXTENSION = dll
   OS = windows
-  PD_PATH = $(shell cd "$$PROGRAMFILES/pd" && pwd)
+  PD_PATH = $(shell cd "$$PROGRAMFILES/Pure Data" && pwd)
   # MinGW doesn't seem to include cc so force gcc
-  CC=gcc
+  CC = gcc
   OPT_CFLAGS = -O3 -funroll-loops -fomit-frame-pointer
-  ALL_CFLAGS += -mms-bitfields
+  ALL_CFLAGS += -mms-bitfields -DNT -DMSW
   ALL_LDFLAGS += -s -shared -Wl,--enable-auto-import
   SHARED_LDFLAGS += -shared
   ALL_LIBS += -L"$(PD_PATH)/src" -L"$(PD_PATH)/bin" -L"$(PD_PATH)/obj" \
-	-lpd -lwsock32 -lkernel32 -luser32 -lgdi32 -liberty $(LIBS_windows)
+	-lpd -lwsock32 -lkernel32 -luser32 -lgdi32 $(LIBS_windows)
   STRIP = strip --strip-unneeded -R .note -R .comment
   DISTBINDIR=$(DISTDIR)-$(OS)
 endif
