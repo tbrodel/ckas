@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#ifdef      _WIN32
+#ifdef _WIN32
         #include <windows.h> 
         #include <winsock2.h>
 #else
@@ -54,9 +54,9 @@ send_packet(t_ckas *x)
         #else
                 if (!(inet_aton(x->host, &simcor.sin_addr))) {
         #endif 
-                    post("Invalid IP Address");
-                    return;
-        }
+                        post("Invalid IP Address");
+                        return;
+                }
 
         snprintf(packet, (PACKET_LEN + NULL_TERM) * sizeof(char), 
             "%s%010.6f, %010.6f, %010.6f, %09.6f, %09.6f, %09.6f", HEAD, x->x,
@@ -74,18 +74,19 @@ send_packet(t_ckas *x)
 void 
 mk_sockfd(t_ckas *x)
 {
-	#ifdef _WIN32
+        #ifdef _WIN32
                 WORD w_version;
-		WSADATA wsa_data;
-		int err;
-		char err_str[32];
-		w_version = MAKEWORD(2, 2);
-		if ((err = WSAStartup(w_version, &wsa_data) != 0)) {
-			sprintf(err_str, "WSAStartup failed with error: %d", err);
-			post(err_str);
-		}
-	#endif
-			
+                WSADATA wsa_data;
+                int err;
+                char err_str[32];
+                w_version = MAKEWORD(2, 2);
+                if ((err = WSAStartup(w_version, &wsa_data) != 0)) {
+                        sprintf(err_str, "WSAStartup failed with error: %d", 
+                            err);
+                        post(err_str);
+                }
+        #endif
+
         if ((x->sockfd = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1) {
                 perror("fail..");
                 post("Failed to open socket");
@@ -107,15 +108,15 @@ check_float(t_float *f, float max, float min)
 void
 ckas_bang(t_ckas *x)
 {
-    /* Ensure values are in valid range */
-    check_float(&x->x, CART_MAX, CART_MIN);
-    check_float(&x->y, CART_MAX, CART_MIN);
-    check_float(&x->z, CART_MAX, CART_MIN);
-    check_float(&x->pitch, ANGLE_MAX, ANGLE_MIN);
-    check_float(&x->roll, ANGLE_MAX, ANGLE_MIN);
-    check_float(&x->yaw, ANGLE_MAX, ANGLE_MIN);
+        /* Ensure values are in valid range */
+        check_float(&x->x, CART_MAX, CART_MIN);
+        check_float(&x->y, CART_MAX, CART_MIN);
+        check_float(&x->z, CART_MAX, CART_MIN);
+        check_float(&x->pitch, ANGLE_MAX, ANGLE_MIN);
+        check_float(&x->roll, ANGLE_MAX, ANGLE_MIN);
+        check_float(&x->yaw, ANGLE_MAX, ANGLE_MIN);
 
-    send_packet(x);
+        send_packet(x);
 }
 
 void *
@@ -156,10 +157,10 @@ ckas_free(t_ckas *x)
 {
         /* Close socket when object is destroyed */
         #ifdef _WIN32
-            closesocket(x->sockfd);
-            WSACleanup();
+                closesocket(x->sockfd);
+                WSACleanup();
         #else 
-            close(x->sockfd);
+                close(x->sockfd);
         #endif
 }
 
