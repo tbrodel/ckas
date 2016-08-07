@@ -1,7 +1,7 @@
 #library template version 1.0.14
 # For instructions on how to use this template, see:
 #  http://puredata.info/docs/developer/MakefileTemplate
-LIBRARY_NAME = ake
+LIBRARY_NAME = tbrodel
 SOURCES = ckas.c
 PDOBJECTS = ckas.pd_linux
 
