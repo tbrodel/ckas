@@ -1,10 +1,10 @@
-#N canvas 930 556 466 251 10;
-#X floatatom 167 78 5 0 0 0 - - -, f 5;
-#X floatatom 272 78 5 0 0 0 - - -, f 5;
-#X floatatom 317 78 5 0 0 0 - - -, f 5;
-#X floatatom 422 78 5 0 0 0 - - -, f 5;
+#N canvas 418 509 534 235 10;
+#X floatatom 196 78 5 0 0 0 - - -, f 5;
+#X floatatom 319 78 5 0 0 0 - - -, f 5;
+#X floatatom 364 78 5 0 0 0 - - -, f 5;
+#X floatatom 487 78 5 0 0 0 - - -, f 5;
 #X floatatom 21 79 5 0 0 0 - - -, f 5;
-#X floatatom 132 78 5 0 0 0 - - -, f 5;
+#X floatatom 151 78 5 0 0 0 - - -, f 5;
 #X obj 21 19 loadbang;
 #X text 14 118 [posneg] - generate a positive/negative pair;
 #X text 70 152 inlet: bang;
@@ -14,8 +14,8 @@
 #X text 65 193 author: tobias brodel <brittlehaus@gmail.com>;
 #X text 59 207 license: 2-clause BSD;
 #X obj 21 57 tbrodel/posneg 0.17;
-#X obj 167 56 tbrodel/posneg -80;
-#X obj 317 56 tbrodel/posneg 127;
+#X obj 196 56 tbrodel/posneg -80;
+#X obj 364 56 tbrodel/posneg 127;
 #X connect 6 0 14 0;
 #X connect 6 0 15 0;
 #X connect 6 0 16 0;
