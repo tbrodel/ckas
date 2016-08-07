@@ -1,11 +1,10 @@
-#N canvas 325 166 663 514 10;
+#N canvas 322 179 663 514 10;
 #X text 87 446 External to manipulate CKAS Mechatronics 6dof motion
 simulator, f 62;
-#X obj 85 420 ake/ckas 127.0.0.1, f 63;
 #X text 276 464 http://rmit.edu.au/art/research/ake;
 #X text 402 482 http://tbrodel.me;
 #X obj 85 75 loadbang;
-#X obj 85 97 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 85 97 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
 #X obj 85 119 metro 50;
 #X obj 161 145 hsl 128 15 -50 50 0 0 empty empty empty -2 -8 0 10 -262144
@@ -34,18 +33,19 @@ simulator, f 62;
 #X text 29 30 min freq == 10hz;
 #X text 29 50 max freq == 50hz;
 #X text 8 12 Bang to send packet;
+#X obj 85 420 tbrodel/ckas 127.0.0.1, f 63;
+#X connect 3 0 4 0;
 #X connect 4 0 5 0;
-#X connect 5 0 6 0;
-#X connect 6 0 1 0;
-#X connect 7 0 8 0;
-#X connect 7 0 1 1;
-#X connect 9 0 10 0;
-#X connect 9 0 1 2;
-#X connect 11 0 12 0;
-#X connect 11 0 1 3;
-#X connect 13 0 14 0;
-#X connect 13 0 1 4;
-#X connect 15 0 16 0;
-#X connect 15 0 1 5;
-#X connect 17 0 18 0;
-#X connect 17 0 1 6;
+#X connect 5 0 26 0;
+#X connect 6 0 7 0;
+#X connect 6 0 26 1;
+#X connect 8 0 9 0;
+#X connect 8 0 26 2;
+#X connect 10 0 11 0;
+#X connect 10 0 26 3;
+#X connect 12 0 13 0;
+#X connect 12 0 26 4;
+#X connect 14 0 15 0;
+#X connect 14 0 26 5;
+#X connect 16 0 17 0;
+#X connect 16 0 26 6;
