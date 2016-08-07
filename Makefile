@@ -183,6 +183,21 @@ ifeq ($(UNAME),GNU/kFreeBSD)
   STRIP = strip --strip-unneeded -R .note -R .comment
   DISTBINDIR=$(DISTDIR)-$(OS)-$(shell uname -m)
 endif
+ifeq ($(UNAME),FreeBSD)
+  CPU := $(shell uname -m)
+  SOURCES += $(SOURCES_linux)
+  EXTENSION = pd_linux
+  SHARED_EXTENSION = so
+  OS = linux
+  PD_PATH = /usr/local
+  OPT_CFLAGS = -O6 -funroll-loops -fomit-frame-pointer
+  ALL_CFLAGS += -fPIC
+  ALL_LDFLAGS += -rdynamic -shared -fPIC -Wl,-rpath,"\$$ORIGIN",--enable-new-dtags
+  SHARED_LDFLAGS += -shared -Wl,-soname,$(SHARED_LIB)
+  ALL_LIBS += -lc $(LIBS_linux)
+  STRIP = strip --strip-unneeded -R .note -R .comment
+  DISTBINDIR=$(DISTDIR)-$(OS)-$(shell uname -m)
+endif
 ifeq (CYGWIN,$(findstring CYGWIN,$(UNAME)))
   CPU := $(shell uname -m)
   SOURCES += $(SOURCES_cygwin)
