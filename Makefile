@@ -3,7 +3,7 @@
 #  http://puredata.info/docs/developer/MakefileTemplate
 LIBRARY_NAME = tbrodel
 SOURCES = ckas.c
-PDOBJECTS = ckas.pd_linux
+PDOBJECTS = ckas.pd_linux ckas_scale.pd ckas_scale-help.pd posneg.pd posneg-help.pd
 
 EXTRA_DIST = 
 UNITTESTS = 
@@ -34,7 +34,7 @@ PD_INCLUDE = $(PD_PATH)/include/pd
 prefix = /usr
 libdir = $(prefix)/lib
 pkglibdir = $(libdir)/pd
-objectsdir = $(pkglibdir)/extra
+objectsdir = $(libdir)/pd-externals
 
 INSTALL = install
 INSTALL_PROGRAM = $(INSTALL) -p -m 644
@@ -184,12 +184,13 @@ ifeq ($(UNAME),GNU/kFreeBSD)
   DISTBINDIR=$(DISTDIR)-$(OS)-$(shell uname -m)
 endif
 ifeq ($(UNAME),FreeBSD)
+  prefix = /usr/local
   CPU := $(shell uname -m)
   SOURCES += $(SOURCES_linux)
   EXTENSION = pd_linux
   SHARED_EXTENSION = so
   OS = linux
-  PD_PATH = /usr/local
+  PD_PATH = $(prefix)
   OPT_CFLAGS = -O6 -funroll-loops -fomit-frame-pointer
   ALL_CFLAGS += -fPIC
   ALL_LDFLAGS += -rdynamic -shared -fPIC -Wl,-rpath,"\$$ORIGIN",--enable-new-dtags
