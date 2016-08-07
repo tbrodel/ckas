@@ -1,26 +1,27 @@
-#N canvas 1442 47 476 1012 10;
-#X obj 160 93 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#N canvas 559 93 530 339 10;
+#X obj 183 93 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 314 93 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 346 93 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 448 93 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 499 93 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 28 19 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
 #X floatatom 25 140 5 0 0 0 - - -, f 5;
-#X floatatom 185 140 5 0 0 0 - - -, f 5;
-#X floatatom 325 140 5 0 0 0 - - -, f 5;
+#X floatatom 195 140 5 0 0 0 - - -, f 5;
+#X floatatom 355 140 5 0 0 0 - - -, f 5;
 #X text 20 179 creation arg: float as base for scale operation;
 #X text 62 192 inlets: L -> float (0..127) [number to scale];
 #X text 118 206 R -> toggle [toggle polarity];
 #X text 62 219 outlet: scaled float;
-#X text 62 231 author: tobias brodel <brittlehaus@gmail.com>;
-#X text 55 242 license: 2-clause BSD;
+#X text 62 245 author: tobias brodel <brittlehaus@gmail.com>;
+#X text 55 256 license: 2-clause BSD;
 #X text 19 164 [ckas_scale] - scale cc data to cartesian coordinate
 ;
 #X obj 25 118 tbrodel/ckas_scale 1000;
-#X obj 185 118 tbrodel/ckas_scale 100;
-#X obj 325 118 tbrodel/ckas_scale 10;
+#X obj 195 118 tbrodel/ckas_scale 100;
+#X obj 355 118 tbrodel/ckas_scale 10;
+#X text 20 231 dependencies: pd-cylone pd-maxlib;
 #X connect 0 0 14 1;
 #X connect 1 0 15 1;
 #X connect 2 0 16 1;
