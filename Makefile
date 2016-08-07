@@ -34,7 +34,7 @@ PD_INCLUDE = $(PD_PATH)/include/pd
 prefix = /usr
 libdir = $(prefix)/lib
 pkglibdir = $(libdir)/pd
-objectsdir = $(libdir)/pd-externals
+objectsdir = $(pkglibdir)/extra
 
 INSTALL = install
 INSTALL_PROGRAM = $(INSTALL) -p -m 644
@@ -185,6 +185,7 @@ ifeq ($(UNAME),GNU/kFreeBSD)
 endif
 ifeq ($(UNAME),FreeBSD)
   prefix = /usr/local
+  objectsdir = $(libdir)/pd-externals
   CPU := $(shell uname -m)
   SOURCES += $(SOURCES_linux)
   EXTENSION = pd_linux
